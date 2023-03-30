@@ -1,0 +1,2 @@
+$stale = (Get-Date).AddDays(-365)
+Get-ADComputer -SearchBase "OU=Temp Computers,OU=NHealth,OU=Locations,DC=BDMS,DC=CO,DC=TH" -filter {lastLogonDate -lt $stale} -Properties * | Select-Object -Property Name, lastLogonDate,  Modified, whenChanged, OperatingSystem | Export-Csv D:\ComputerName_365.csv

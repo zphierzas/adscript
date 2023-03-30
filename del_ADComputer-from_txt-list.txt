@@ -1,0 +1,1 @@
+Get-Content D:\scripts\deleteComputers.txt | % { Get-ADComputer -Filter { Name -eq $_ } } | Remove-ADObject -Recursive

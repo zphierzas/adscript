@@ -1,0 +1,4 @@
+$Computers = Import-Csv -Path D:\delComputers.csv
+foreach($Computer in $Computers) {
+Get-ADComputer $Computer.Name |Remove-ADComputer -Recursive
+} 

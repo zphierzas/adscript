@@ -1,0 +1,8 @@
+	Measure-Command {
+Import-Module ActiveDirectory
+$Users = Import-Csv -Path "C:\PS\user.csv"
+foreach ($User in $Users)
+{
+     Set-ADUser -Identity $User -CannotChangePassword $True -PasswordNeverExpires $True
+}
+}
